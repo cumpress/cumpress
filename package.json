@@ -1,7 +1,7 @@
 {
   "name": "cumpress",
   "version": "0.0.1",
-  "description": "the best backend framework (inspired by express)",
+  "description": "Minimalist backend framework/library (inspired by express)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/cumpress/cumpress/issues"
   },
-  "homepage": "https://github.com/cumpress/cumpress#readme"
+  "homepage": "https://github.com/cumpress/cumpress#readme",
+  "dependencies": {
+    "emejs": "^3.0.2",
+    "morgan": "^1.10.0"
+  }
 }
