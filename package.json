@@ -1,6 +1,6 @@
 {
   "name": "cumpress",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Minimalist backend framework/library (inspired by express)",
   "main": "index.js",
   "scripts": {
