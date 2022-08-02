@@ -72,25 +72,21 @@ module.exports.listen = (port) => {
     
                 let find = cumpress_routers.find((e) => e.url === req.url && e.method === req.method);
     
-                if(settings.static_dir){
-                    if(find){
-                        find.callback(req,res);
-                    }else{
-                        getfile(req.url,settings.static_dir).then((data) => {
-                            if(data.success){
-                                res.setHeader('Content-Type', data.type);
-                                res.write(data.data);
-                                res.end();
-                            }else{
-                                res.status(404);
-                                res.json({
-                                    status:404,
-                                    ip:req.ip,
-                                    message:"Cannot "+req.method+" "+req.url
-                                })
-                            }
-                        });
-                    }
+                if(settings.static_dir && !find){
+                    getfile(req.url,settings.static_dir).then((data) => {
+                        if(data.success){
+                            res.setHeader('Content-Type', data.type);
+                            res.write(data.data);
+                            res.end();
+                        }else{
+                            res.status(404);
+                            res.json({
+                                status:404,
+                                ip:req.ip,
+                                message:"Cannot "+req.method+" "+req.url
+                            })
+                        }
+                    });
                 }else{
                     if(find){
                         find.callback(req,res);
